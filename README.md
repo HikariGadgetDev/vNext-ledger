@@ -69,11 +69,11 @@ vNext Ledger はこれを **構造で解決**します。
 
 ## 仕組み概要
 
-### コメント規約（例）
+### コメント規約（唯一の入力）
 
 ```python
-# NOTE(vNext): login-flow-stealth-injection
-# DONE(vNext): video-flow-entrypoint
+# NOTE(vNext): login-flow
+# DONE(vNext): entrypoint
 ```
 
 - slug は小文字・英数・`-` / `_` 推奨
@@ -125,7 +125,7 @@ curl -X POST http://127.0.0.1:8000/scan
 curl -X POST "http://127.0.0.1:8000/scan?full=true"
 ```
 
-⚠️ **これは世界を閉じる操作です。CI や定期実行では使用しないでください。**
+⚠️ **これは世界を閉じる操作です。CI や定期実行では使用しないでください。**（不可逆な整合性確定を伴います）
 
 ---
 
