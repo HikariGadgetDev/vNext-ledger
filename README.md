@@ -169,7 +169,63 @@ vNext Ledger は
 
 ## API / CLI 概要
 
-（※既存記述そのまま）
+## API / CLI 概要
+
+### 起動
+
+```bash
+python -m uvicorn app:app
+```
+
+起動時に必ず以下を表示します：
+
+- DB のパス
+- 解決された scan root
+
+👉 環境変数 / cwd 事故の即時切り分け用です。
+
+---
+
+### スキャン（差分・安全）
+
+```bash
+curl -X POST http://127.0.0.1:8000/scan
+```
+
+---
+
+### スキャン（全走査・収束）
+
+```bash
+curl -X POST "http://127.0.0.1:8000/scan?full=true"
+```
+
+⚠️ **これは世界を閉じる操作です。CI や定期実行では使用しないでください。**
+⚠️ **これは世界を閉じる操作です。CI や定期実行では使用しないでください。**（不可逆な整合性確定を伴います）
+
+---
+
+### 台帳取得
+
+```bash
+curl http://127.0.0.1:8000/notes
+curl http://127.0.0.1:8000/notes/{slug}
+```
+
+---
+
+### JSON ログ / メトリクス
+
+```bash
+curl http://127.0.0.1:8000/export/scan_history
+curl http://127.0.0.1:8000/export/metrics
+```
+
+- diff が効いているか
+- full scan をいつ実行したか
+- evidence が増えているか
+
+すべて観測可能です。
 
 ---
 
