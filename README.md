@@ -169,8 +169,6 @@ vNext Ledger は
 
 ## API / CLI 概要
 
-## API / CLI 概要
-
 ### 起動
 
 ```bash
